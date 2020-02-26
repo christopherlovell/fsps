@@ -44,6 +44,7 @@ MODULE SPS_VARS
 !so the spectral library, IMF, etc. is fixed in this case.  
 #ifndef BPASS
 #define BPASS 0
+CHARACTER(16), PARAMETER :: spec_prep = 'v2.2_salpeter100'
 #endif
   
   !--------------------------------------------------------------!
@@ -221,7 +222,7 @@ MODULE SPS_VARS
   REAL(SP), PARAMETER :: zsol = 0.020
   CHARACTER(4), PARAMETER :: isoc_type = 'bpss'
   INTEGER, PARAMETER :: nt=43
-  INTEGER, PARAMETER :: nz=12
+  INTEGER, PARAMETER :: nz=13
 #endif
 
   !flag indicating type of spectral library to use
@@ -230,7 +231,7 @@ MODULE SPS_VARS
   REAL(SP), PARAMETER :: zsol_spec = 0.020
   CHARACTER(5), PARAMETER :: spec_type = 'bpass'
   INTEGER, PARAMETER :: nzinit=1
-  INTEGER, PARAMETER :: nspec=15000
+  INTEGER, PARAMETER :: nspec=13999
 #else
 #if (MILES)
   REAL(SP), PARAMETER :: zsol_spec = 0.019

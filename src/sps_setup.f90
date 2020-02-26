@@ -123,7 +123,7 @@ SUBROUTINE SPS_SETUP(zin)
      OPEN(90,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/MIST/zlegend'//&
           '.dat',STATUS='OLD',iostat=stat,ACTION='READ')
   ELSE IF (isoc_type.EQ.'bpss') THEN
-     OPEN(90,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/zlegend'//&
+     OPEN(90,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/zlegend.'//spec_prep//&
           '.dat',STATUS='OLD',iostat=stat,ACTION='READ')
   ELSE IF (isoc_type.EQ.'gnva') THEN
      OPEN(90,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/Geneva/zlegend'//&
@@ -176,7 +176,7 @@ SUBROUTINE SPS_SETUP(zin)
         STOP
      ENDIF
      
-     OPEN(91,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/bpass.lambda',&
+     OPEN(91,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/bpass_'//spec_prep//'.lambda',&
           STATUS='OLD',iostat=stat,ACTION='READ')
      IF (stat.NE.0) THEN
         WRITE(*,*) 'SPS_SETUP ERROR: wavelength grid cannot be opened'
@@ -187,7 +187,7 @@ SUBROUTINE SPS_SETUP(zin)
      ENDDO
      CLOSE(91)
 
-     OPEN(92,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/bpass.mass',&
+     OPEN(92,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/bpass_'//spec_prep//'.mass',&
           STATUS='OLD',iostat=stat,ACTION='READ')
      IF (stat.NE.0) THEN
         WRITE(*,*) 'SPS_SETUP ERROR: wavelength grid cannot be opened'
@@ -198,7 +198,7 @@ SUBROUTINE SPS_SETUP(zin)
      ENDDO
      CLOSE(92)
 
-     OPEN(93,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/bpass_v2.2_salpeter100'&
+     OPEN(93,FILE=TRIM(SPS_HOME)//'/ISOCHRONES/BPASS/bpass_'//spec_prep&
           //'.ssp.bin',FORM='UNFORMATTED',&
           STATUS='OLD',iostat=stat,ACTION='READ',access='direct',&
           recl=nspec*nt*nz*8)

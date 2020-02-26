@@ -10,3 +10,4 @@ metalml.f90
 colorteff.f90
 bytype.f90
 Makefile.prv
+ISOCHRONES/BPASS/bpass_files/*.dat
